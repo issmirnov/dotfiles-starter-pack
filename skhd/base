@@ -1,0 +1,90 @@
+# Config for https://github.com/koekeishiya/skhd/tree/b659b90576cf88100b52ca6ab9270d84af7e579b
+
+# # open terminal
+cmd - return : open -na /System/Applications/Utilities/Terminal.app
+# Open Work profile
+alt - z : open -na /Applications/Google\ Chrome.app --args --profile-directory=Profile\ 1
+# Open personal profile
+alt - x : open -na /Applications/Google\ Chrome.app --args --profile-directory=Default
+# alt - z : chrome-cli open "https://smirnov.wiki" -n
+
+# close current window
+alt - q : yabai -m window --close
+
+# # focus window (can jump across displays)
+alt - left : yabai -m window --focus west || yabai -m display --focus west
+alt + ctrl - d : yabai -m window --focus west || yabai -m display --focus west
+alt - down : yabai -m window --focus south
+alt - up : yabai -m window --focus north
+alt - right : yabai -m window --focus east || yabai -m display --focus east
+alt + ctrl - f: yabai -m window --focus east || yabai -m display --focus east
+
+
+# # From https://github.com/koekeishiya/yabai/issues/526
+# Move windows around and follow focus. Can jump across displays but not spaces
+alt + shift - left : yabai -m window --swap west || $(yabai -m window --display west; yabai -m display --focus west)
+# alt + shift + ctl - d : yabai -m window --swap west || $(yabai -m window --display west; yabai -m display --focus west)
+alt + shift - down : yabai -m window --swap south || $(yabai -m window --display south; yabai -m display --focus south)
+alt + shift - up : yabai -m window --swap north || $(yabai -m window --display north; yabai -m display --focus north)
+alt + shift - right : yabai -m window --swap east || $(yabai -m window --display east; yabai -m display --focus east)
+# alt + shift + ctrl - f  : yabai -m window --swap east || $(yabai -m window --display east; yabai -m display --focus east)
+
+# # balance size of windows
+alt - space : yabai -m space --balance
+
+# # make floating window fill screen
+# shift + cmd - space     : yabai -m window --grid 1:1:0:0:1:1
+
+# # make floating window fill left-half of screen
+# shift + alt - left   : yabai -m window --grid 1:2:0:0:1:1
+
+# # make floating window fill right-half of screen
+# shift + alt - right  : yabai -m window --grid 1:2:1:0:1:1
+
+# create desktop and follow focus
+# Create new display, move window there and follow focus
+cmd + shift - z : yabai -m space --create && \
+                             WIN_ID=$(yabai -m query --windows --window | jq '.id') && \
+                             index="$(yabai -m query --spaces --display | jq 'map(select(."is-native-fullscreen" == false))[-1].index')" && \
+                             yabai -m window --space $index && yabai -m window --focus $WIN_ID
+# Move window to next space
+cmd + shift - x : WIN_ID=$(yabai -m query --windows --window | jq '.id') && \
+                    yabai -m window --space next && yabai -m window --focus $WIN_ID
+
+# # create desktop and follow focus
+alt + shift - n : yabai -m space --create \
+                    index="$(yabai -m query --spaces --display | jq 'map(select(."is-native-fullscreen" == false))[-1].index')" && \
+                    yabai -m window --space $index
+
+# # destroy desktop
+cmd + shift - q : yabai -m space --destroy
+
+# # focus monitor
+ctrl + alt - left  : yabai -m display --focus west
+ctrl + alt - right  : yabai -m display --focus east
+
+# rotate tree (use home row mods - right hand 3rd finger trigger alt)
+alt - r : yabai -m space --rotate 90
+
+
+# # toggle window fullscreen zoom
+alt - f : yabai -m window --toggle zoom-fullscreen
+
+# # toggle window native fullscreen
+# shift + alt - f : yabai -m window --toggle native-fullscreen
+
+
+# # float / unfloat window and center on screen
+alt - t : yabai -m window --toggle float;\
+          yabai -m window --grid 4:4:1:1:2:2
+
+# # toggle sticky
+alt - s : yabai -m window --toggle sticky
+
+
+# Set insertion point (shows red area whre next window will be placed)
+alt + shift - c : yabai -m window --insert south # down
+alt + shift - v : yabai -m window --insert east # right
+
+# # Rotate focus between displays and keep focus
+alt + shift -r : WIN_ID=$(yabai -m query --windows --window | jq '.id') && yabai -m window --display recent && yabai -m window --focus $WIN_ID

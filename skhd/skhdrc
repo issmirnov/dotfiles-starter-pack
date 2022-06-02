@@ -88,3 +88,13 @@ alt + shift - v : yabai -m window --insert east # right
 
 # # Rotate focus between displays and keep focus
 alt + shift -r : WIN_ID=$(yabai -m query --windows --window | jq '.id') && yabai -m window --display recent && yabai -m window --focus $WIN_ID
+# These settings all require SIP disabled and the scripting injection enabled
+# This lives in a separate file, since there is a dynamic loader that will generate
+# the skhd config depending on SIP status.
+
+
+# # fast switch spaces without animations
+# requires correctv install of scripting addon
+# https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)#macos-big-sur-and-monterey---automatically-load-scripting-addition-on-startup
+ctrl - left: yabai -m space --focus prev
+ctrl - right: yabai -m space --focus next

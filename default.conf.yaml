@@ -13,14 +13,10 @@
 
 - link:
     ~/.config/bat: bat
-    ~/.config/htop/htoprc: htop/htoprc
     ~/.dotfiles/.git/hooks/post-checkout: git/hooks/post-checkout
     ~/.dotfiles/.git/hooks/post-commit: git/hooks/post-commit
     ~/.dotfiles/.git/hooks/post-merge: git/hooks/post-merge
     ~/.gitconfig: git/config
-    ~/.grc: grc
-    ~/.gdbinit: gdb/gdbinit
-    ~/.nanorc: nano/nanorc
     ~/.tmate.conf: tmate/tmate.conf
     ~/.tmux.conf: tmux/tmux.conf
     ~/.toprc : top/toprc
@@ -29,7 +25,6 @@
     ~/.vimrc: vim/vimrc
     ~/.zshrc: zsh/zshrc
     ~/.zshenv: zsh/config/paths.zsh # for non interactive commands
-    ~/bin/tm: tmux/tmux-menu
 
 - shell:
   - [printf "\n" | vim +PlugInstall +PlugUpdate +qall, Installing vim plugins]

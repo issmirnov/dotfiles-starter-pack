@@ -9,14 +9,14 @@ an inspiration for someone to fork and extend for their own needs.
 
 Each folder contains config for that particular tool.
 
-- [bat]() (colorized cat) contains the config file and some custom syntaxes.
-- [cheat]() (built in tldr pages) - has a folder for custom cheatsheets and a git summodule with the community suggestions
-- [espanso]()
+- [bat](https://github.com/sharkdp/bat) (colorized cat) contains the config file and some custom syntaxes.
+- [cheat](https://github.com/cheat/cheat) (built in tldr pages) - has a folder for custom cheatsheets and a git summodule with the community suggestions
+- [espanso](https://espanso.org/) - a lightweight text expander
 - fonts - simple font files that make the terminal look nicer
 - git - contains the .gitconfig, hooks, some template files and the initial ignore file
-- [skhd]() - MacOS hotkey daemon, used to control [yabai](), a tiling window managere
+- [skhd](https://github.com/koekeishiya/skhd) - MacOS hotkey daemon, used to control [yabai](), a tiling window managere
 - [tmate](https://tmate.io/) - instant terminal sharing via remote tmux
-- [tmux]() - terminal multiplexer, modern version of screen.
+- [tmux](https://github.com/tmux/tmux/wiki/Getting-Started) - terminal multiplexer, modern version of screen.
 - [ubersicht](https://tracesof.net/uebersicht/) - MacOS widget engine. Used to support [status bar](https://ivans.io/better-status-bar-for-macos/)
 - [vim](https://www.openvim.com/) - slightly opinionated vim config using the [vim-plug](https://github.com/junegunn/vim-plug) plugin manager
 - [yabai](https://github.com/koekeishiya/yabai) - tiling window manager for MacOS

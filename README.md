@@ -26,7 +26,7 @@ Each folder contains config for that particular tool.
 
 On MacOS:
 
-```
+```shell
 brew install bat cheat espanso python git \
     koekeishiya/formulae/yabai koekeishiya/formulae/skhd vim tmux tmate
     ubersicht
@@ -45,7 +45,7 @@ place.
 
 If you would like to use the MacOS terminal theme, run
 `open ~/.dotfiles/osx_terminal/SolarizedDark.terminal`, then open Terminal Preferences
-with `Cmd + ,`, and scroll down to `SolarizedDark`. Click the "Default" button in the bottom left corner.
+with `Cmd + ,` and scroll down to `SolarizedDark`. Click the "Default" button in the bottom left corner.
 Now, any new terminals you open will use that theme.
 
 ## Macos Window manager stack

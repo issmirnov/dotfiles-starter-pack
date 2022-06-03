@@ -12,10 +12,6 @@ bindkey -v
 bindkey "^A" vi-beginning-of-line
 bindkey "^E" vi-end-of-line
 
-# remove all escape binds, to speed up shell
-bindkey -rpM viins '^['
-bindkey -rpM vicmd '^['
-
 # Easier history access
 bindkey -M vicmd -r "o"
 bindkey -M vicmd 'o' up-history
